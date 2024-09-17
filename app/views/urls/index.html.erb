@@ -2,7 +2,7 @@
 
 <% content_for :title, "Urls" %>
 
-<h1>Urls</h1>
+<h1>View shortened Urls</h1>
 
 <div id="urls">
   <% @urls.each do |url| %>
@@ -12,5 +12,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New url", new_url_path %>
