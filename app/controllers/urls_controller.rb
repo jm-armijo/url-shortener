@@ -21,7 +21,10 @@ class UrlsController < ApplicationController
 
   # POST /urls or /urls.json
   def create
-    @url = Url.new(url_params)
+    new_params = new_url_params
+    new_params['short_url'] = 'armijo.au/abc'
+
+    @url = Url.new(new_params)
 
     respond_to do |format|
       if @url.save
@@ -37,7 +40,7 @@ class UrlsController < ApplicationController
   # PATCH/PUT /urls/1 or /urls/1.json
   def update
     respond_to do |format|
-      if @url.update(url_params)
+      if @url.update(update_url_params)
         format.html { redirect_to @url, notice: "Url was successfully updated." }
         format.json { render :show, status: :ok, location: @url }
       else
@@ -63,8 +66,12 @@ class UrlsController < ApplicationController
       @url = Url.find(params[:id])
     end
 
+    def new_url_params
+      params.require(:url).permit(:long_url, :description, :owner)
+    end
+
     # Only allow a list of trusted parameters through.
-    def url_params
-      params.require(:url).permit(:long_url, :short_url, :description, :owner)
+    def update_url_params
+      params.require(:url).permit(:description)
     end
 end

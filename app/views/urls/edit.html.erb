@@ -2,4 +2,43 @@
 
 <h1>Editing url</h1>
 
-<%= render "form", url: @url %>
+<br />
+<%= form_with(model: @url) do |form| %>
+  <% if @url.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+        <% @url.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :long_url, style: "display: block" %>
+    <%= form.text_field :long_url, class: "form-control", placeholder: "http://www.example.com/this-is-a-long-url", disabled: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :short_url, style: "display: block" %>
+    <%= form.text_field :short_url, class: "form-control", placeholder: "http://short.url/1", disabled: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label "#{:description} (optional)", style: "display: block" %>
+    <%= form.text_field :description, class: "form-control", placeholder: "Description" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :owner, style: "display: block" %>
+    <%= form.text_field :owner, class: "form-control", placeholder: "someone@domain.com", disabled: true %>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-secondary" %>
+  </div>
+<% end %>
