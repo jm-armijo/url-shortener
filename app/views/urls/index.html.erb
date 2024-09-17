@@ -2,13 +2,33 @@
 
 <% content_for :title, "Urls" %>
 
-<h1>View shortened Urls</h1>
+<h1>Shortened Urls</h1>
 
-<div id="urls">
-  <% @urls.each do |url| %>
-    <%= render url %>
-    <p>
-      <%= link_to "Show this url", url %>
-    </p>
-  <% end %>
-</div>
+<% if (@urls.length == 0) %>
+  <p>No items to display.</p>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Long url</th>
+        <th scope="col">Short url</th>
+        <th scope="col">Description</th>
+        <th scope="col">Owner</th>
+        <th scope="col">View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @urls.each do |url| %>
+      <tr>
+        <td><a href="<%= url.long_url %>"><%= url.long_url %></a></td>
+        <td><a href="<%= url.short_url %>"><%= url.short_url %></a></td>
+        <td><%= url.description %></td>
+        <td><%= url.owner %></td>
+        <td><%= link_to "View", url %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to "Shorten a new URL", new_url_path, class: "btn btn-secondary" %>

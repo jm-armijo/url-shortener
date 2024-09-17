@@ -1,10 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @url %>
+<div class="jumbotron">
+  <h1 class="display-5"><%= @url.description %></h1>
 
-<div>
-  <%= link_to "Edit this url", edit_url_path(@url) %> |
-  <%= link_to "Back to urls", urls_path %>
+  <p>Long URL: <a href="<%= @url.long_url %>"><%= @url.long_url %></a></p>
+  <p>Short URL: <a href="<%= @url.short_url %>"><%= @url.short_url %></a></p>
+  <p>Owner: <%= @url.owner %></p>
 
-  <%= button_to "Destroy this url", @url, method: :delete %>
+  <div>
+    <%= link_to "Edit this url", edit_url_path(@url), class: "btn btn-secondary" %>
+    <%= link_to "Back to urls", urls_path, class: "btn btn-dark" %>
+    <!--<%= link_to "Destroy this url", @url, method: :delete, class: "btn btn-secondary" %>-->
+  </div>
 </div>
