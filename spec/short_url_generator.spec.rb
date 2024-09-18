@@ -1,7 +1,7 @@
 # require 'rails_helper'
 # require 'spec_helper'
 
-require 'short-url-generator'
+require 'short_url_generator'
 
 RSpec.describe ShortUrlGenerator do
     base_url = 'http://test.com'
