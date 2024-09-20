@@ -1,6 +1,3 @@
-# require 'rails_helper'
-# require 'spec_helper'
-
 require 'short_url_generator'
 
 RSpec.describe ShortUrlGenerator do
