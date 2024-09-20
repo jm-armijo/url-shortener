@@ -132,6 +132,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.2)
+    mutex_m (0.2.0)
     net-imap (0.4.16)
       date
       net-protocol
@@ -325,6 +326,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  mutex_m
   puma (>= 6.4.3)
   rails (~> 7.2.1)
   rspec (~> 3.0)

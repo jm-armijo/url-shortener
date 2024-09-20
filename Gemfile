@@ -46,6 +46,8 @@ group :development, :test do
 
   gem "rspec", "~> 3.0"
   # gem 'rspec-rails', '~> 5.0'
+
+  gem "mutex_m"
 end
 
 group :development do

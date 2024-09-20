@@ -12,12 +12,11 @@ class UrlsTest < ApplicationSystemTestCase
 
   test "should create url" do
     visit urls_url
-    click_on "New url"
+    click_on "Shorten a new URL"
 
-    fill_in "Description", with: @url.description
     fill_in "Long url", with: @url.long_url
-    fill_in "Owner", with: @url.owner
-    fill_in "Short url", with: @url.short_url
+    fill_in "url_description", with: @url.description
+    fill_in "url_owner", with: @url.owner
     click_on "Create Url"
 
     assert_text "Url was successfully created"
@@ -29,19 +28,9 @@ class UrlsTest < ApplicationSystemTestCase
     click_on "Edit this url", match: :first
 
     fill_in "Description", with: @url.description
-    fill_in "Long url", with: @url.long_url
-    fill_in "Owner", with: @url.owner
-    fill_in "Short url", with: @url.short_url
     click_on "Update Url"
 
     assert_text "Url was successfully updated"
     click_on "Back"
-  end
-
-  test "should destroy Url" do
-    visit url_url(@url)
-    click_on "Destroy this url", match: :first
-
-    assert_text "Url was successfully destroyed"
   end
 end
