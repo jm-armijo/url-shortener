@@ -38,3 +38,6 @@ bin/*
 
 # Ignore Vim swap files
 *.swp
+
+# Ignore IDE directories
+.idea
