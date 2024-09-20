@@ -21,12 +21,12 @@ class UrlsController < ApplicationController
 
   # POST /urls or /urls.json
   def create
-    base_url = 'http://armijo.au'
+    base_url = "http://armijo.au"
     next_id = Url.maximum(:id).next
     short_url = ShortUrlGenerator.generate(base_url, next_id)
 
     new_params = new_url_params
-    new_params['short_url'] = short_url
+    new_params["short_url"] = short_url
 
     @url = Url.new(new_params)
 

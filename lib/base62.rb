@@ -10,6 +10,6 @@ class Base62
         reminder = number / BASE
 
         return response if reminder == 0
-        return Base62.encode(number/BASE) + response
+        Base62.encode(number/BASE) + response
     end
 end
