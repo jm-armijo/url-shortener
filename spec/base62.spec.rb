@@ -41,9 +41,9 @@ RSpec.describe Base62 do
         expect(response).to eq "HbXm5a4"
     end
 
-    it 'should encode maxint 64 as per bits' do
-        maxint = 18446744073709551615
-        response = Base62.encode(maxint)
+    it 'should encode max_int 64 as per bits' do
+        max_int = 18446744073709551615
+        response = Base62.encode(max_int)
         expect(response).to eq "LygHa16AHYF"
     end
 end

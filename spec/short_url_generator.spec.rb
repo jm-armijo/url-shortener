@@ -4,7 +4,7 @@
 require 'short_url_generator'
 
 RSpec.describe ShortUrlGenerator do
-    base_url = 'http://test.com'
+    base_url = 'https://test.com'
 
     it 'should not generate url for negative id' do
         id = -1
